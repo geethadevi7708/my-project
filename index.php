@@ -609,31 +609,19 @@ h1{
 <div class="category">
   <h2>Lipsticks</h2>
   <div class="product-row">
+    <?php
+    $query = "select * from products where p_category='lipsticks'";
+    $result = mysqli_query($conn,$query);
+    while($row = mysqli_fetch_array($result)){
+    ?>
     <div class="product-card">
-      <img src="cart2.jpg" alt="Lipstick 1">
-      <div class="price">$12.99</div>
-     <a href="address.html" class="add-to-cart">Add to Cart</a> <!-- Link to login page -->
+      <img src="images/<?php echo $row['p_image'] ?>" alt="<?php echo $row['p_name'] ?>">
+      <div class="price">$<?php echo $row['p_amount'] ?></div>
+     <a href="product-details.php?id=<?php echo $row['p_id'] ?>" class="add-to-cart">Add to Cart</a> <!-- Link to login page -->
     </div>
-    <div class="product-card">
-      <img src="cart3.jpg" alt="Lipstick 2">
-      <div class="price">$14.49</div>
-      <a href="address.html" class="add-to-cart">Add to Cart</a> <!-- Link to login page -->
-    </div>
-    <div class="product-card">
-      <img src="cart11.jpg" alt="Lipstick 3">
-      <div class="price">$11.99</div>
-     <a href="address.html" class="add-to-cart">Add to Cart</a> <!-- Link to login page -->
-    </div>
-    <div class="product-card">
-      <img src="cart11.jpg" alt="Lipstick 3">
-      <div class="price">$13.99</div>
-      <a href="address.html" class="add-to-cart">Add to Cart</a> <!-- Link to login page -->
-    </div>
-    <div class="product-card">
-      <img src="cart14.jpg" alt="Lipstick 3">
-      <div class="price">$18.99</div>
-      <a href="address.html" class="add-to-cart">Add to Cart</a> <!-- Link to login page -->
-    </div>
+    <?php
+    }
+    ?>
       </div>
 </div>
 
@@ -670,32 +658,21 @@ h1{
 <div class="category">
   <h2>Shadows</h2>
   <div class="product-row">
+    <?php
+    $query = "select * from products where p_category='shadows'";
+    $result = mysqli_query($conn,$query);
+    while($row = mysqli_fetch_array($result)){
+    ?>
     <div class="product-card">
-      <img src="cart8.jpg" alt="Shadow 1">
-      <div class="price">$16.99</div>
-      <a href="address.html" class="add-to-cart">Add to Cart</a> <!-- Link to login page -->
+      <img src="images/<?php echo $row['p_image'] ?>" alt="<?php echo $row['p_name'] ?>">
+      <div class="price">$<?php echo $row['p_amount'] ?></div>
+     <a href="product-details.php?id=<?php echo $row['p_id'] ?>" class="add-to-cart">Add to Cart</a> <!-- Link to login page -->
     </div>
-    <div class="product-card">
-      <img src="cart9.jpg" alt="Shadow 2">
-      <div class="price">$17.99</div>
-     <a href="address.html" class="add-to-cart">Add to Cart</a> <!-- Link to login page -->
-    </div>
-    <div class="product-card">
-      <img src="cart10.jpg" alt="Shadow 3">
-      <div class="price">$15.49</div>
-      <button class="add-to-cart">Add to Cart</button>
-    </div>
-  <div class="product-card">
-      <img src="cart7.jpg" alt="Cream 3">
-      <div class="price">$40.99</div>
-      <a href="address.html" class="add-to-cart">Add to Cart</a> <!-- Link to login page -->
-    </div>
-<div class="product-card">
-      <img src="cart18.jpg" alt="Cream 3">
-      <div class="price">$40.99</div>
-      <a href="address.html" class="add-to-cart">Add to Cart</a> <!-- Link to login page -->
-    </div>
-  </div>
+    <?php
+    }
+    ?>
+      </div>
+
 </div>
 <div class="category">
   <h2>HAIRCARE</h2>
@@ -830,77 +807,3 @@ ORDER PAGE:
 </html>
 
 LOGOUT:
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stylish Beauty</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-        }
-        h1 {
-            color: #ff6347;
-            padding: 20px;
-            background-color: #fff;
-            margin-top: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        img {
-            border-radius: 10px;
-            border: 4px solid #ff6347;
-            padding: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
-        }
-        .message {
-            font-size: 20px;
-            color: #333;
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .message p {
-            margin: 5px 0;
-        }
-        .delivery-info {
-            margin-top: 30px;
-            font-size: 18px;
-            color: #555;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            padding: 20px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Stylish Beauty</h1>
-        <img src="cart9.jpg" width="200" height="200" alt="Stylish Beauty">
-        <div class="message">
-            <p>Added to cart successfully!</p>
-            <p>Welcome!</p>
-            <p>Visit again soon!</p>
-        </div>
-        <div class="delivery-info">
-            <p><strong>Delivery date:</strong> 12/07/25</p>
-            <p><strong>Delivery address:</strong> Ganapathy Nagar</p>
-        </div>
-    </div>
-</body>
-</html>
-
