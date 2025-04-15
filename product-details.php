@@ -65,7 +65,8 @@ $row = mysqli_fetch_array($result);
 <body>
     <div class="container">
         <h1>Stylish Beauty</h1>
-        <img src="images/<?php echo $row['p_image'] ?>" width="200" height="200" alt="<?php echo $row['p_name'] ?>">
+        <img src="images/<?php echo $row['p_image'] ?>" width="200" height="200" alt="<?php echo $row['p_name'] ?> <?php echo $row['p_amount'] ?><?php echo $row['p_sales'] ?>
+    <?php echo $row['p_stock'] ?>
         <div class="message">
             <p>Added to cart successfully!</p>
             <p>Welcome!</p>
